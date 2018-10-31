@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace VTaxi.Pages
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Register.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class Register : UserControl
     {
-        public Login()
+        public Register()
         {
             InitializeComponent();
-        }
-
-        private void OnClickRegister(object sender, EventArgs e)
-        {
-            NavigationCommands.GoToPage.Execute("Pages/Register.xaml", this);
         }
     }
 }

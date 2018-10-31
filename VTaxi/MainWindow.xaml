@@ -10,7 +10,9 @@
         <mui:LinkGroup DisplayName="welcome">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Login" Source="/Pages/Login.xaml" />
+                <mui:Link DisplayName="Register" Source="/Pages/Register.xaml" />
             </mui:LinkGroup.Links>
+
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="settings" GroupKey="settings">
             <mui:LinkGroup.Links>
