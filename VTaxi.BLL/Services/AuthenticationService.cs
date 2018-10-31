@@ -3,7 +3,6 @@ using VTaxi.BLL.DTO;
 using VTaxi.BLL.Interfaces;
 using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Models;
-using VTaxi.Models;
 
 namespace VTaxi.BLL.Services
 {
@@ -18,9 +17,9 @@ namespace VTaxi.BLL.Services
             DataBase = db;
         }
 
-        public UserDto LogIn(LoginViewModel lwModel)
+        public UserDto LogIn(UserDto userDto)
         {
-            var user = DataBase.Users.Find(i => i.Email == lwModel.Login && i.Password == lwModel.Password).FirstOrDefault();
+            var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password).FirstOrDefault();
             if (user!=null)
             {
                 CurrentUser= new UserDto{Email = user.Email,
@@ -37,16 +36,16 @@ namespace VTaxi.BLL.Services
             return CurrentUser;
         }
 
-        public UserDto Register(RegisterViewModel registerViewModel)
+        public UserDto Register(UserDto userDto)
         {
-            var user = DataBase.Users.Find(i => i.Email == registerViewModel.Email && i.Password == registerViewModel.Password).FirstOrDefault();
+            var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password).FirstOrDefault();
             if (user != null) return CurrentUser;
             CurrentUser = new UserDto
             {
-                Email = registerViewModel.Email,
-                FirstName = registerViewModel.FirstName,
-                LastName = registerViewModel.LastName,
-                Password = registerViewModel.Password
+                Email = userDto.Email,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Password = userDto.Password
             };
             DataBase.Users.Create(new User
             {

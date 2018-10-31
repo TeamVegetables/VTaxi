@@ -1,5 +1,4 @@
 ﻿using VTaxi.BLL.DTO;
-using VTaxi.Models;
 
 namespace VTaxi.BLL.Interfaces
 {
@@ -7,9 +6,9 @@ namespace VTaxi.BLL.Interfaces
     {
         UserDto CurrentUser { get; set; }
 
-        UserDto LogIn(LoginViewModel loginViewModel);
+        UserDto LogIn(UserDto loginViewModel);
 
-        UserDto Register(RegisterViewModel registerViewModel);
+        UserDto Register(UserDto registerViewModel);
 
         void Dispose();
     }
