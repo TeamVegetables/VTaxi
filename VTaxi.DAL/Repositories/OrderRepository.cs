@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using Dapper;
+using VTaxi.DAL.EF;
 using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Models;
 
@@ -11,59 +10,43 @@ namespace VTaxi.DAL.Repositories
 {
     public class OrderRepository : IRepository<Order>
     {
-        private readonly string _connectionString;
+        private readonly TaxiContext _db;
 
-        public OrderRepository()
+        public OrderRepository(TaxiContext context)
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["VTaxiDB"].ConnectionString;
+            _db = context;
         }
 
         public IEnumerable<Order> GetAll()
         {
-            List<Order> orders;
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                orders = db.Query<Order>("SELECT * FROM Orders").ToList();
-            }
-
-            return orders;
+            return _db.Orders;
         }
 
         public Order Get(int id)
         {
-            Order order;
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                order = db.Query<Order>("SELECT * FROM Orders WHERE Id = @id", new { id }).FirstOrDefault();
-            }
-            return order;
+            return _db.Orders.Find(id);
         }
 
         public void Create(Order order)
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var sqlQuery = "INSERT INTO Orders (PassengerId, DriverId, Status) VALUES(@PassengerId, @DriverId, @Status); SELECT CAST(SCOPE_IDENTITY() as int)";
-                db.Query<int>(sqlQuery, order);
-            }
+            _db.Orders.Add(order);
         }
 
         public void Update(Order order)
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var sqlQuery = "UPDATE Orders SET PassengerId = @PassengerId, DriverId = @DriverId, @Status = Status WHERE Id = @Id";
-                db.Execute(sqlQuery, order);
-            }
+            _db.Entry(order).State = EntityState.Modified;
+        }
+
+        public IEnumerable<Order> Find(Func<Order, bool> predicate)
+        {
+            return _db.Orders.Where(predicate).ToList();
         }
 
         public void Delete(int id)
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var sqlQuery = "DELETE FROM Orders WHERE Id = @id";
-                db.Execute(sqlQuery, new { id });
-            }
+            Order order = _db.Orders.Find(id);
+            if (order != null)
+                _db.Orders.Remove(order);
         }
     }
 }

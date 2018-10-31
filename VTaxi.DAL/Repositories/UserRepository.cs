@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using Dapper;
+using VTaxi.DAL.EF;
 using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Models;
 
@@ -11,59 +10,43 @@ namespace VTaxi.DAL.Repositories
 {
     public class UserRepository : IRepository<User>
     {
-        private readonly string _connectionString;
+        private readonly TaxiContext _db;
 
-        public UserRepository()
+        public UserRepository(TaxiContext context)
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["VTaxiDB"].ConnectionString;
+            _db = context;
         }
 
         public IEnumerable<User> GetAll()
         {
-            List<User> users;
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                users = db.Query<User>("SELECT * FROM Users").ToList();
-            }
-
-            return users;
+            return _db.Users;
         }
 
         public User Get(int id)
         {
-            User user;
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                user = db.Query<User>("SELECT * FROM Users WHERE Id = @id", new { id }).FirstOrDefault();
-            }
-            return user;
+            return _db.Users.Find(id);
         }
 
         public void Create(User user)
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var sqlQuery = "INSERT INTO Users (FirstName, LastName, SuccessfulTrips, Type) VALUES(@FirstName, @LastName, @SuccessfulTrips, @Type); SELECT CAST(SCOPE_IDENTITY() as int)";
-                db.Query<int>(sqlQuery, user);
-            }
+            _db.Users.Add(user);
         }
 
         public void Update(User user)
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var sqlQuery = "UPDATE Users SET FirstName = @FirstName, LastName = @LastName, @SuccessfulTrips = SuccessfulTrips, @Type = Type WHERE Id = @Id";
-                db.Execute(sqlQuery, user);
-            }
+            _db.Entry(user).State = EntityState.Modified;
+        }
+
+        public IEnumerable<User> Find(Func<User, bool> predicate)
+        {
+            return _db.Users.Where(predicate).ToList();
         }
 
         public void Delete(int id)
         {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                var sqlQuery = "DELETE FROM Users WHERE Id = @id";
-                db.Execute(sqlQuery, new { id });
-            }
+            var user = _db.Users.Find(id);
+            if (user != null)
+                _db.Users.Remove(user);
         }
     }
 }
