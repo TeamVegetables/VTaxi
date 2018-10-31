@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VTaxi.BLL.DTO;
+﻿using VTaxi.BLL.DTO;
 using VTaxi.Models;
 
 namespace VTaxi.BLL.Interfaces
 {
-    public interface IAuthenticationServise
+    public interface IAuthenticationService
     {
-        UserDTO CurrentUser { get; set; }
+        UserDto CurrentUser { get; set; }
 
-        UserDTO LogIn(LoginViewModel LoginViewModel);
+        UserDto LogIn(LoginViewModel loginViewModel);
 
-        UserDTO Register(RegisterViewModel registerViewModel);
+        UserDto Register(RegisterViewModel registerViewModel);
 
         void Dispose();
     }

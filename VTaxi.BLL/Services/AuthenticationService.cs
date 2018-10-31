@@ -1,42 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
-using VTaxi;
+﻿using System.Linq;
 using VTaxi.BLL.DTO;
 using VTaxi.BLL.Interfaces;
 using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Models;
-using VTaxi.DAL.Repositories;
 using VTaxi.Models;
 
 namespace VTaxi.BLL.Services
 {
-    public class AuthenticationService: IAuthenticationServise
+    public class AuthenticationService: IAuthenticationService
     {
-        public UserDTO CurrentUser { get; set; }
+        public UserDto CurrentUser { get; set; }
 
-        private IUnitOfWork dataBase { get; set; }
+        private IUnitOfWork DataBase { get; }
 
         public AuthenticationService(IUnitOfWork db)
         {
-            dataBase = db;
+            DataBase = db;
         }
 
-        public UserDTO LogIn(LoginViewModel lwModel)
+        public UserDto LogIn(LoginViewModel lwModel)
         {
-            var User = dataBase.Users.Find(i => i.Email == lwModel.Login && i.Password == lwModel.Password).FirstOrDefault();
-            if (User!=null)
+            var user = DataBase.Users.Find(i => i.Email == lwModel.Login && i.Password == lwModel.Password).FirstOrDefault();
+            if (user!=null)
             {
-                CurrentUser= new UserDTO{Email = User.Email,
-                    FirstName = User.FirstName,
-                    LastName = User.LastName,
-                    Id = User.Id,
-                    Password = User.Password,
-                    Type = User.Type,
-                    SuccessfulTrips = User.SuccessfulTrips
+                CurrentUser= new UserDto{Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Id = user.Id,
+                    Password = user.Password,
+                    Type = user.Type,
+                    SuccessfulTrips = user.SuccessfulTrips
                 };
             }
 
@@ -44,34 +37,32 @@ namespace VTaxi.BLL.Services
             return CurrentUser;
         }
 
-        public UserDTO Register(RegisterViewModel registerViewModel)
+        public UserDto Register(RegisterViewModel registerViewModel)
         {
-            var User = dataBase.Users.Find(i => i.Email == registerViewModel.Email && i.Password == registerViewModel.Password).FirstOrDefault();
-            if (User == null)
+            var user = DataBase.Users.Find(i => i.Email == registerViewModel.Email && i.Password == registerViewModel.Password).FirstOrDefault();
+            if (user != null) return CurrentUser;
+            CurrentUser = new UserDto
             {
-                CurrentUser = new UserDTO
-                {
-                    Email = registerViewModel.Email,
-                    FirstName = registerViewModel.FirstName,
-                    LastName = registerViewModel.LastName,
-                    Password = registerViewModel.Password
-                };
-                dataBase.Users.Create(new User
-                {
-                    Email = CurrentUser.Email,
-                    FirstName = CurrentUser.FirstName,
-                    LastName = CurrentUser.LastName,
-                    Password = CurrentUser.Password
-                });
-                dataBase.Save();
-            }
+                Email = registerViewModel.Email,
+                FirstName = registerViewModel.FirstName,
+                LastName = registerViewModel.LastName,
+                Password = registerViewModel.Password
+            };
+            DataBase.Users.Create(new User
+            {
+                Email = CurrentUser.Email,
+                FirstName = CurrentUser.FirstName,
+                LastName = CurrentUser.LastName,
+                Password = CurrentUser.Password
+            });
+            DataBase.Save();
 
             return CurrentUser;
         }
 
         public void Dispose()
         {
-            dataBase.Dispose();
+            DataBase.Dispose();
         }
     }
 }

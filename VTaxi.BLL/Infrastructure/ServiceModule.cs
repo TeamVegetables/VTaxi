@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Repositories;
 
 namespace VTaxi.BLL.Infrastructure
 {
-    public class ServiceModule:NinjectModule
+    public class ServiceModule : NinjectModule
     {
-        private string ConnectionString;
+        private readonly string _connectionString;
 
         public ServiceModule(string connection)
         {
-            ConnectionString = connection;
+            _connectionString = connection;
         }
 
         public override void Load()
         {
-            Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(ConnectionString);
+            Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(_connectionString);
         }
     }
 }
