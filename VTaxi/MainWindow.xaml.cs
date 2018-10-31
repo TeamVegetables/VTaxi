@@ -1,18 +1,9 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Configuration;
+using FirstFloor.ModernUI.Windows.Controls;
+using Ninject;
+using Ninject.Modules;
+using VTaxi.BLL.Infrastructure;
+using VTaxi.Util;
 
 namespace VTaxi
 {
@@ -24,6 +15,9 @@ namespace VTaxi
         public MainWindow()
         {
             InitializeComponent();
+            NinjectModule serviceModule = new ServiceModule(ConfigurationManager.ConnectionStrings["VTaxiDB"].ConnectionString);
+            NinjectModule authenticationModule = new AuthenticationModule();
+            var kernel = new StandardKernel(serviceModule, authenticationModule);
         }
     }
 }

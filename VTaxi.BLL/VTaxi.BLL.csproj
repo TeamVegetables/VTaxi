@@ -56,10 +56,6 @@
       <Project>{86b5897f-9c8c-440f-9215-33dac265a4a9}</Project>
       <Name>VTaxi.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VTaxi\VTaxi.csproj">
-      <Project>{3cdebade-bbae-4115-aaee-80dea4153dbb}</Project>
-      <Name>VTaxi</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

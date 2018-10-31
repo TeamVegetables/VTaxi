@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VTaxi.BLL.Interfaces;
 
 namespace VTaxi.Pages
 {
@@ -20,9 +21,12 @@ namespace VTaxi.Pages
     /// </summary>
     public partial class Login : UserControl
     {
-        public Login()
+        private IAuthenticationService _service;
+
+        public Login(IAuthenticationService service)
         {
             InitializeComponent();
+            _service = service;
         }
 
         private void OnClickRegister(object sender, EventArgs e)
