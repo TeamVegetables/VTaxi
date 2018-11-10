@@ -102,6 +102,7 @@ namespace VTaxi.Tests.BLL_Tests
             orderService.StartTrip(0);
             //Assert
             mockRepo.Verify(i => i.Get(It.IsAny<int>()), Times.Once);
+            mockRepo.Verify(i => i.Update(It.IsAny<Order>()), Times.Once);
         }
 
         [Test]

@@ -73,8 +73,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL_Tests\AthenticationService_Test.cs" />
     <Compile Include="BLL_Tests\OrderService_Test.cs" />
     <Compile Include="DAL_Tests\OrderRepository_Test.cs" />
+    <Compile Include="DAL_Tests\StoreDbInitializer_Test.cs" />
     <Compile Include="DAL_Tests\UserRepository_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +92,10 @@
     <ProjectReference Include="..\VTaxi.Shared\VTaxi.Shared.csproj">
       <Project>{0d5c4b96-27fe-465c-be8f-f2476df2a4ca}</Project>
       <Name>VTaxi.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTaxi\VTaxi.csproj">
+      <Project>{ad427e81-17f9-4478-9a63-5e7a2a6a1795}</Project>
+      <Name>VTaxi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
