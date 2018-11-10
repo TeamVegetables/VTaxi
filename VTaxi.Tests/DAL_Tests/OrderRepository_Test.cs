@@ -8,7 +8,7 @@ using VTaxi.DAL.Models;
 using VTaxi.DAL.Repositories;
 using VTaxi.Shared.Enums;
 
-namespace VTaxi.Tests.DAL_Test
+namespace VTaxi.Tests.DAL_Tests
 {
     [TestFixture]
     public class OrderRepository_Test
