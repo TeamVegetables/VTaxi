@@ -72,6 +72,10 @@
       <Project>{e9025500-27dc-4b50-8d4f-301d948b5993}</Project>
       <Name>VTaxi.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VTaxi.Shared\VTaxi.Shared.csproj">
+      <Project>{0d5c4b96-27fe-465c-be8f-f2476df2a4ca}</Project>
+      <Name>VTaxi.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

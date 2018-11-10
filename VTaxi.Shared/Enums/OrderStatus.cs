@@ -1,4 +1,4 @@
-﻿namespace VTaxi.DAL.Enums
+﻿namespace VTaxi.Shared.Enums
 {
     public enum OrderStatus
     {

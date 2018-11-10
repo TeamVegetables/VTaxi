@@ -60,8 +60,6 @@
   <ItemGroup>
     <Compile Include="EF\StoreDbInitializer.cs" />
     <Compile Include="EF\TaxiContext.cs" />
-    <Compile Include="Enums\OrderStatus.cs" />
-    <Compile Include="Enums\UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\Order.cs" />
@@ -74,6 +72,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VTaxi.Shared\VTaxi.Shared.csproj">
+      <Project>{0d5c4b96-27fe-465c-be8f-f2476df2a4ca}</Project>
+      <Name>VTaxi.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

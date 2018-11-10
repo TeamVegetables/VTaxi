@@ -39,7 +39,7 @@ namespace VTaxi.Pages
                     Email = EmailTextBox.Text,
                     Password = PasswordBox.Password
                 });
-                NavigationCommands.GoToPage.Execute("Pages/Profile.xaml", this);
+                NavigationCommands.GoToPage.Execute("Pages/Order/Orders.xaml", this);
             }
             catch (FormatException formatException)
             {

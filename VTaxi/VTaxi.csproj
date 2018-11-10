@@ -78,9 +78,13 @@
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Order\Orders.xaml.cs">
+      <DependentUpon>Orders.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Profile.xaml.cs" />
     <Compile Include="Pages\Register.xaml.cs" />
     <Compile Include="Util\AuthenticationModule.cs" />
+    <Compile Include="Util\OrderModule.cs" />
     <Compile Include="Util\Services.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +95,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Order\Orders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +151,10 @@
     <ProjectReference Include="..\VTaxi.BLL\VTaxi.BLL.csproj">
       <Project>{6559d572-7fbb-4098-94f2-2b36a3bdd129}</Project>
       <Name>VTaxi.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VTaxi.Shared\VTaxi.Shared.csproj">
+      <Project>{0d5c4b96-27fe-465c-be8f-f2476df2a4ca}</Project>
+      <Name>VTaxi.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
-using VTaxi.DAL.Enums;
 using VTaxi.DAL.Models;
+using VTaxi.Shared.Enums;
 
 namespace VTaxi.DAL.EF
 {

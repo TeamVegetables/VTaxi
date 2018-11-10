@@ -1,4 +1,4 @@
-﻿using VTaxi.DAL.Enums;
+﻿using VTaxi.Shared.Enums;
 
 namespace VTaxi.DAL.Models
 {

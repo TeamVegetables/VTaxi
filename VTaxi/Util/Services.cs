@@ -13,7 +13,8 @@ namespace VTaxi.Util
         {
             NinjectModule serviceModule = new ServiceModule(ConfigurationManager.ConnectionStrings["VTaxiDB"].ConnectionString);
             NinjectModule authenticationModule = new AuthenticationModule();
-            Kernel = new StandardKernel(serviceModule, authenticationModule);
+            NinjectModule orderModule = new OrderModule();
+            Kernel = new StandardKernel(serviceModule, authenticationModule, orderModule);
         }
     }
 }
