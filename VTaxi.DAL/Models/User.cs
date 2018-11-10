@@ -1,9 +1,11 @@
-﻿using VTaxi.Shared.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using VTaxi.Shared.Enums;
 
 namespace VTaxi.DAL.Models
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
 
         public string FirstName { get; set; }

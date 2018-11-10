@@ -5,9 +5,9 @@ namespace VTaxi.DAL.EF
 {
     public class TaxiContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
-        public DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         static TaxiContext()
         {
