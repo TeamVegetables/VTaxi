@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using VTaxi.BLL.DTO;
 using VTaxi.BLL.Interfaces;
 using VTaxi.DAL.Interfaces;
@@ -20,26 +21,33 @@ namespace VTaxi.BLL.Services
         public UserDto LogIn(UserDto userDto)
         {
             var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password).FirstOrDefault();
-            if (user!=null)
+            if (user == null)
             {
-                CurrentUser= new UserDto{Email = user.Email,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Id = user.Id,
-                    Password = user.Password,
-                    Type = user.Type,
-                    SuccessfulTrips = user.SuccessfulTrips
-                };
+                throw new InvalidOperationException("Bad credentials!");
             }
 
+            CurrentUser = new UserDto
+            {
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Id = user.Id,
+                Password = user.Password,
+                Type = user.Type,
+                SuccessfulTrips = user.SuccessfulTrips
+            };
 
             return CurrentUser;
         }
 
         public UserDto Register(UserDto userDto)
         {
-            var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password).FirstOrDefault();
-            if (user != null) return CurrentUser;
+            var user = DataBase.Users.Find(i => i.Email == userDto.Email).FirstOrDefault();
+            if (user != null)
+            {
+                throw new InvalidOperationException("User with this E-Mail already exists!");
+            }
+
             CurrentUser = new UserDto
             {
                 Email = userDto.Email,

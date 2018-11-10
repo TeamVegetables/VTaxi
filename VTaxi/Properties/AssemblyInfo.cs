@@ -21,7 +21,7 @@ using System.Windows.Media;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3cdebade-bbae-4115-aaee-80dea4153dbb")]
+[assembly: Guid("ad427e81-17f9-4478-9a63-5e7a2a6a1795")]
 
 // required to support per-monitor DPI awareness in Windows 8.1+
 // see also https://mui.codeplex.com/wikipage?title=Per-monitor%20DPI%20awareness

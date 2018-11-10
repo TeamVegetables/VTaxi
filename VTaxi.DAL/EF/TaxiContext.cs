@@ -12,7 +12,6 @@ namespace VTaxi.DAL.EF
         static TaxiContext()
         {
             Database.SetInitializer(new StoreDbInitializer());
-
         }
 
         public TaxiContext(string connectionString)

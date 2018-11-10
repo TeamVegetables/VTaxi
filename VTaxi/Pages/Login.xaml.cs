@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Ninject;
+using VTaxi.BLL.DTO;
 using VTaxi.BLL.Interfaces;
+using VTaxi.BLL.Services;
+using VTaxi.Util;
 
 namespace VTaxi.Pages
 {
@@ -21,17 +16,48 @@ namespace VTaxi.Pages
     /// </summary>
     public partial class Login : UserControl
     {
-        private IAuthenticationService _service;
+        private readonly IAuthenticationService _service;
 
-        public Login(IAuthenticationService service)
+        public Login()
         {
             InitializeComponent();
-            _service = service;
+            _service = Services.Kernel.Get<AuthenticationService>();
         }
 
         private void OnClickRegister(object sender, EventArgs e)
         {
             NavigationCommands.GoToPage.Execute("Pages/Register.xaml", this);
+        }
+
+        private void LoginButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CheckData();
+                _service.LogIn(new UserDto
+                {
+                    Email = EmailTextBox.Text,
+                    Password = PasswordBox.Password
+                });
+                NavigationCommands.GoToPage.Execute("Pages/Profile.xaml", this);
+            }
+            catch (FormatException formatException)
+            {
+                ErrorTextBlock.Text = formatException.Message;
+            }
+            catch (Exception exception)
+            {
+                ErrorTextBlock.Text = exception.Message;
+            }
+        }
+
+        private void CheckData()
+        {
+            var mail = new MailAddress(EmailTextBox.Text);
+            if (string.IsNullOrEmpty(PasswordBox.Password))
+            {
+                throw new FormatException("Password can't be empty!");
+            }
         }
     }
 }

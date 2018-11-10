@@ -9,21 +9,22 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200" VerticalAlignment ="center" HorizontalAlignment="Center">
-                <TextBlock Text="Email" HorizontalAlignment="Center"/>
+                <TextBlock Text="REGISTER" HorizontalAlignment="Center" FontWeight="Bold" FontSize="48"/>
+                    <TextBlock Text="Email" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"/>
                 <TextBox Name ="EmailTextBox"></TextBox>
-                <TextBlock Text="First Name" HorizontalAlignment="Center"/>
+                <TextBlock Text="First Name" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"/>
                 <TextBox Name ="FirstNameTextBox"></TextBox>
-                <TextBlock Text="Last Name" HorizontalAlignment="Center"/>
+                <TextBlock Text="Last Name" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"/>
                 <TextBox Name ="LastNameTextBox"></TextBox>
-                <TextBlock Text="Password" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="Password" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"></TextBlock>
                 <PasswordBox Name="PasswordBox"></PasswordBox>
-                <TextBlock Text="Confirm Password" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="Confirm Password" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"></TextBlock>
                 <PasswordBox Name="ConfirmPasswordBox"></PasswordBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                     <Button Name="RegisterButton" Content="Register"  Width="150"
-                             Margin="0,5,0,0"/>
+                             Margin="0,5,0,0" Click="RegisterButton_OnClick"/>
                 </StackPanel>
-
+                <TextBlock Width="200" Name="ErrorMessage" Margin="0,5,0,0" Foreground="#FFFF2727"></TextBlock>
             </StackPanel>
         </ScrollViewer>
     </Grid>

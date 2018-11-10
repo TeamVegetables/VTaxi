@@ -6,9 +6,9 @@ namespace VTaxi.BLL.Interfaces
     {
         UserDto CurrentUser { get; set; }
 
-        UserDto LogIn(UserDto loginViewModel);
+        UserDto LogIn(UserDto userDto);
 
-        UserDto Register(UserDto registerViewModel);
+        UserDto Register(UserDto userDto);
 
         void Dispose();
     }

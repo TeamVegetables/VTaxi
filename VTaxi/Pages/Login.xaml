@@ -9,17 +9,19 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200" VerticalAlignment ="center" HorizontalAlignment="Center">
-                <TextBlock Text="Login" HorizontalAlignment="Center"/>
-                <TextBox Name ="LoginTextBox"></TextBox>
-                <TextBlock Text="Password" HorizontalAlignment="Center"></TextBlock>
+                <Image Source="../Images/taxi.png" Width="200"/>
+                <TextBlock Text="VTaxi" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Showcard Gothic" FontSize="40" Foreground="#FFFFD05B"/>
+                <TextBlock Text="E-Mail" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"/>
+                <TextBox Name ="EmailTextBox"></TextBox>
+                <TextBlock Text="Password" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"></TextBlock>
                 <PasswordBox Name="PasswordBox"></PasswordBox>
                 <StackPanel Orientation="Horizontal" >
                     <Button Name="LoginButton" Content="Log in" Width="80" 
-                            HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                            HorizontalAlignment="Left" Margin="0,5,0,0" Click="LoginButton_OnClick"/>
                     <Button Name="Register" Content="Register" Click="OnClickRegister" Width="80"
                             HorizontalAlignment="Right" Margin="40,5,0,0"/>
                 </StackPanel>
-                
+                <TextBlock Name="ErrorTextBlock" Width="200" Margin="0,5,0,0" Foreground="#FFFF2727"></TextBlock>
             </StackPanel>
         </ScrollViewer>
     </Grid>
