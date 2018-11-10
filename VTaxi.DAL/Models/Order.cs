@@ -1,9 +1,11 @@
-﻿using VTaxi.Shared.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using VTaxi.Shared.Enums;
 
 namespace VTaxi.DAL.Models
 {
     public class Order
     {
+        [Key]
         public int Id { get; set; }
 
         public string StartPoint { get; set; }

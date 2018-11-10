@@ -73,8 +73,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Test\OrderRepository_Test.cs" />
     <Compile Include="DAL_Test\UserRepository_Test.cs" />
-    <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
