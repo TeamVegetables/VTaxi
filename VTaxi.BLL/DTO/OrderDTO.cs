@@ -8,8 +8,6 @@ namespace VTaxi.BLL.DTO
 
         public int PassengerId { get; set; }
 
-        public int DriverId { get; set; }
-
         public OrderStatus Status { get; set; }
     }
 }

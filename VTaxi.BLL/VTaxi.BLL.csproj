@@ -62,8 +62,10 @@
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Interfaces\IAuthenticationServise.cs" />
+    <Compile Include="Interfaces\IOrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VTaxi.DAL\VTaxi.DAL.csproj">
