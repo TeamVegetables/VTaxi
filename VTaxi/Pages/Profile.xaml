@@ -9,17 +9,25 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200" VerticalAlignment ="Top" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="First Name:"></TextBlock>
-                    <TextBlock Name="FirstNameTextBlock" ></TextBlock>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="First Name: " FontSize="28" FontStyle="Italic" Foreground="DarkGoldenrod"></TextBlock>
+                    <TextBlock Name="FirstNameTextBlock" FontSize="28" FontFamily="Segoe UI Light" 
+                               Text="{Binding Path=FirstName}"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Last Name:"></TextBlock>
-                    <TextBlock Name="LastNameTextBlock" ></TextBlock>
+                    <TextBlock Text="Last Name: " FontSize="28" FontStyle="Italic" Foreground="DarkGoldenrod"></TextBlock>
+                    <TextBlock Name="LastNameTextBlock" FontSize="28" FontFamily="Segoe UI Light"
+                               Text="{Binding Path=LastName}"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Email:"></TextBlock>
-                    <TextBlock Name="EmailTextBlock" ></TextBlock>
+                    <TextBlock Text="Email: " FontSize="28" Foreground="DarkGoldenrod" FontStyle="Italic"></TextBlock>
+                    <TextBlock Name="EmailTextBlock" FontSize="28" FontFamily="Segoe UI Light"
+                               Text="{Binding Path=Email}"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Successful Trips: " FontSize="28" Foreground="DarkGoldenrod" FontStyle="Italic"></TextBlock>
+                    <TextBlock Name="SuccessfulTripsTextBlock" FontSize="28" FontFamily="Segoe UI Light"
+                               Text="{Binding Path=SuccessfulTrips}"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

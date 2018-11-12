@@ -11,6 +11,7 @@
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Login" Source="/Pages/Login.xaml" />
                 <mui:Link DisplayName="Register" Source="/Pages/Register.xaml" />
+                <mui:Link DisplayName="Profile" Source="/Pages/Profile.xaml" />
             </mui:LinkGroup.Links>
 
         </mui:LinkGroup>

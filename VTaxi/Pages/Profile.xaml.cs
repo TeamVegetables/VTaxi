@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ninject;
+using VTaxi.BLL.Interfaces;
+using VTaxi.BLL.Services;
+using VTaxi.Util;
 
 namespace VTaxi.Pages
 {
@@ -20,9 +24,11 @@ namespace VTaxi.Pages
     /// </summary>
     public partial class Profile : UserControl
     {
+
         public Profile()
         {
             InitializeComponent();
+            DataContext = AuthenticationService.CurrentUser;
         }
     }
 }

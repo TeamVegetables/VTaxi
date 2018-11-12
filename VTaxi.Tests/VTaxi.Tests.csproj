@@ -76,7 +76,6 @@
     <Compile Include="BLL_Tests\AthenticationService_Test.cs" />
     <Compile Include="BLL_Tests\OrderService_Test.cs" />
     <Compile Include="DAL_Tests\OrderRepository_Test.cs" />
-    <Compile Include="DAL_Tests\StoreDbInitializer_Test.cs" />
     <Compile Include="DAL_Tests\UserRepository_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

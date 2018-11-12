@@ -9,7 +9,7 @@ namespace VTaxi.BLL.Services
 {
     public class AuthenticationService: IAuthenticationService
     {
-        public UserDto CurrentUser { get; set; }
+        public static UserDto CurrentUser { get; set; }
 
         private IUnitOfWork DataBase { get; }
 

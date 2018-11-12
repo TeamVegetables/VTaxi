@@ -4,7 +4,6 @@ namespace VTaxi.BLL.Interfaces
 {
     public interface IAuthenticationService
     {
-        UserDto CurrentUser { get; set; }
 
         UserDto LogIn(UserDto userDto);
 
