@@ -74,12 +74,12 @@ namespace VTaxi.Tests.BLL_Tests
             authenticationService.LogIn(new UserDto());
 
             //Assert
-            Assert.AreEqual(authenticationService.CurrentUser.FirstName, user.FirstName);
-            Assert.AreEqual(authenticationService.CurrentUser.LastName, user.LastName);
-            Assert.AreEqual(authenticationService.CurrentUser.Email, user.Email);
-            Assert.AreEqual(authenticationService.CurrentUser.Password, user.Password);
-            Assert.AreEqual(authenticationService.CurrentUser.Type, user.Type);
-            Assert.AreEqual(authenticationService.CurrentUser.SuccessfulTrips, user.SuccessfulTrips);
+            Assert.AreEqual(AuthenticationService.CurrentUser.FirstName, user.FirstName);
+            Assert.AreEqual(AuthenticationService.CurrentUser.LastName, user.LastName);
+            Assert.AreEqual(AuthenticationService.CurrentUser.Email, user.Email);
+            Assert.AreEqual(AuthenticationService.CurrentUser.Password, user.Password);
+            Assert.AreEqual(AuthenticationService.CurrentUser.Type, user.Type);
+            Assert.AreEqual(AuthenticationService.CurrentUser.SuccessfulTrips, user.SuccessfulTrips);
             _mockRepo.Verify(i=>i.Find(It.IsAny<Func<User, bool>>()), Times.Once);
         }
 
@@ -117,11 +117,11 @@ namespace VTaxi.Tests.BLL_Tests
             authenticationService.Register(user);
 
             //Assert
-            Assert.AreEqual(authenticationService.CurrentUser.FirstName, user.FirstName);
-            Assert.AreEqual(authenticationService.CurrentUser.LastName, user.LastName);
-            Assert.AreEqual(authenticationService.CurrentUser.Email, user.Email);
-            Assert.AreEqual(authenticationService.CurrentUser.Password, user.Password);
-            Assert.AreEqual(authenticationService.CurrentUser.Type, user.Type);
+            Assert.AreEqual(AuthenticationService.CurrentUser.FirstName, user.FirstName);
+            Assert.AreEqual(AuthenticationService.CurrentUser.LastName, user.LastName);
+            Assert.AreEqual(AuthenticationService.CurrentUser.Email, user.Email);
+            Assert.AreEqual(AuthenticationService.CurrentUser.Password, user.Password);
+            Assert.AreEqual(AuthenticationService.CurrentUser.Type, user.Type);
             _mockRepo.Verify(i => i.Find(It.IsAny<Func<User, bool>>()), Times.Once);
             _mockRepo.Verify(i => i.Create(It.IsAny<User>()), Times.Once);
             _mockUoW.Verify(i=>i.Save(), Times.Once);

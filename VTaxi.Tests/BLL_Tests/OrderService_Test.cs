@@ -87,7 +87,7 @@ namespace VTaxi.Tests.BLL_Tests
             var mockRepo = new Mock<IRepository<Order>>();
             _mockUoW.Setup(i => i.Orders).Returns(mockRepo.Object);
             //Assert
-            Assert.Throws<InvalidOperationException>(() => orderService.FinishTrip(0, 0, 0));
+            Assert.Throws<InvalidOperationException>(() => orderService.FinishTrip(0, 0, 0,0));
         }
 
         [Test]

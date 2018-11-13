@@ -11,7 +11,13 @@
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Login" Source="/Pages/Login.xaml" />
                 <mui:Link DisplayName="Register" Source="/Pages/Register.xaml" />
-                <mui:Link DisplayName="Profile" Source="/Pages/Profile.xaml" />
+            </mui:LinkGroup.Links>
+
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Taxi Service">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="My Profile" Source="/Pages/Profile.xaml" />
+                <mui:Link DisplayName="Trips" Source="/Pages/Order/Orders.xaml" />
             </mui:LinkGroup.Links>
 
         </mui:LinkGroup>

@@ -31,7 +31,7 @@ namespace VTaxi.BLL.Services
             _database.Orders.Update(order);
         }
 
-        public double FinishTrip(int orderId, double travelTime, double tariff)
+        public double FinishTrip(int orderId, int driverId, double travelTime, double tariff)
         {
             var order = _database.Orders.Get(orderId);
             if (order == null)
@@ -39,6 +39,9 @@ namespace VTaxi.BLL.Services
                 throw new InvalidOperationException("Order does not exists!");
             }
 
+            var driver = _database.Users.Get(driverId);
+            driver.SuccessfulTrips++;
+            _database.Users.Update(driver);
             order.Status = OrderStatus.Finished;
             _database.Orders.Update(order);
             return travelTime * tariff;

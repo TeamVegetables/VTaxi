@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
@@ -43,14 +44,17 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFrameworkMock.Moq, Version=1.0.0.42, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFrameworkMock.Moq.1.0.0.42\lib\net452\EntityFrameworkMock.Moq.dll</HintPath>
+    <Reference Include="EntityFrameworkMock.Moq, Version=1.0.0.46, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkMock.Moq.1.0.0.46\lib\net452\EntityFrameworkMock.Moq.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFrameworkMock.NSubstitute, Version=1.0.0.42, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFrameworkMock.NSubstitute.1.0.0.42\lib\net452\EntityFrameworkMock.NSubstitute.dll</HintPath>
+    <Reference Include="EntityFrameworkMock.NSubstitute, Version=1.0.0.46, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkMock.NSubstitute.1.0.0.46\lib\net452\EntityFrameworkMock.NSubstitute.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFrameworkMock.Shared, Version=1.0.0.42, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFrameworkMock.Shared.1.0.0.42\lib\net452\EntityFrameworkMock.Shared.dll</HintPath>
+    <Reference Include="EntityFrameworkMock.Shared, Version=1.0.0.46, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFrameworkMock.Shared.1.0.0.46\lib\net452\EntityFrameworkMock.Shared.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FirstFloor.ModernUI, Version=1.0.9.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL">
       <HintPath>..\packages\ModernUI.WPF.1.0.9\lib\net45\FirstFloor.ModernUI.dll</HintPath>
@@ -68,9 +72,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
@@ -96,6 +105,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataContexts\OrderContext.cs" />
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>

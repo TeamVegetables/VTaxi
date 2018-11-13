@@ -11,6 +11,6 @@ namespace VTaxi.BLL.Interfaces
 
         void StartTrip(int orderId);
 
-        double FinishTrip(int orderId, double travelTime, double tariff);
+        double FinishTrip(int orderId, int driverId, double travelTime, double tariff);
     }
 }

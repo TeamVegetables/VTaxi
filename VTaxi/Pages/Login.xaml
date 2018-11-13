@@ -19,7 +19,7 @@
                     <Button Name="LoginButton" Content="Log in" Width="80" 
                             HorizontalAlignment="Left" Margin="0,5,0,0" Click="LoginButton_OnClick"/>
                     <Button Name="Register" Content="Register" Click="OnClickRegister" Width="80"
-                            HorizontalAlignment="Right" Margin="40,5,0,0" Background="#FF373738"/>
+                            HorizontalAlignment="Right" Margin="40,5,0,0"/>
                 </StackPanel>
                 <TextBlock Name="ErrorTextBlock" Width="200" Margin="0,5,0,0" Foreground="#FFFF2727"></TextBlock>
             </StackPanel>
