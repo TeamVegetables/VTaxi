@@ -1,6 +1,6 @@
-# TeamVegetables
-## PMI-35
-* Nazar Homeniuk
-* Ivan Freyuk
-* Ivan Pilyak
-* Maryan Kiselichnik
+# VTaxi by Team Vegetables
+## Used technologies
+* Entity Framework
+* Ninject
+* AutoMapper
+* ModernUI
