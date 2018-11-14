@@ -3,6 +3,9 @@ using VTaxi.BLL.DTO;
 
 namespace VTaxi.DataContexts
 {
+    /// <summary>
+    /// Order context class
+    /// </summary>
     public static class OrderContext
     {
         public static IEnumerable<OrderDto> Orders { get; set; }

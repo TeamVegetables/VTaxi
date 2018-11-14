@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace VTaxi.Models
 {
+/// <summary>
+/// View of Register Model
+/// </summary>
     public class RegisterViewModel
     {
         public string Email { get; set; }
