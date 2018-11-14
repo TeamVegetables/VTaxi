@@ -3,9 +3,14 @@ using VTaxi.DAL.Models;
 using VTaxi.Shared.Enums;
 
 namespace VTaxi.DAL.EF
-{
+{/// <summary>
+/// Class which stores information into database
+/// </summary>
     public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<TaxiContext>
-    {
+    {/// <summary>
+    /// Overrided method which suits for clasess in this project
+    /// </summary>
+    /// <param name="db">information to store</param>
         protected override void Seed(TaxiContext db)
         {
             db.Users.Add(new User {FirstName = "Admin", LastName = "Admin", SuccessfulTrips = 999, Type = UserType.Driver});

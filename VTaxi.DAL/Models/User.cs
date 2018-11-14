@@ -3,6 +3,9 @@ using VTaxi.Shared.Enums;
 
 namespace VTaxi.DAL.Models
 {
+    /// <summary>
+    /// Class User contain info about driver
+    /// </summary>
     public class User
     {
         [Key]
