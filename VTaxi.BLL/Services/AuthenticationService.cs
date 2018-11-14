@@ -6,18 +6,27 @@ using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Models;
 
 namespace VTaxi.BLL.Services
-{
+{/// <summary>
+/// Class Authentification service serves to recognize users
+/// </summary>
     public class AuthenticationService: IAuthenticationService
     {
         public static UserDto CurrentUser { get; set; }
 
         private IUnitOfWork DataBase { get; }
-
+        /// <summary>
+        /// Construcror with parameters that connects the database
+        /// </summary>
+        /// <param name="db">database</param>
         public AuthenticationService(IUnitOfWork db)
         {
             DataBase = db;
         }
-
+        /// <summary>
+        /// Login method
+        /// </summary>
+        /// <param name="userDto">new or existing user</param>
+        /// <returns>new or existing user</returns>
         public UserDto LogIn(UserDto userDto)
         {
             var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password).FirstOrDefault();
@@ -39,7 +48,11 @@ namespace VTaxi.BLL.Services
 
             return CurrentUser;
         }
-
+        /// <summary>
+        /// Register new User
+        /// </summary>
+        /// <param name="userDto">user data tr</param>
+        /// <returns>new UserDTO</returns>
         public UserDto Register(UserDto userDto)
         {
             var user = DataBase.Users.Find(i => i.Email == userDto.Email).FirstOrDefault();
@@ -66,7 +79,9 @@ namespace VTaxi.BLL.Services
 
             return CurrentUser;
         }
-
+        /// <summary>
+        /// Dispose database
+        /// </summary>
         public void Dispose()
         {
             DataBase.Dispose();

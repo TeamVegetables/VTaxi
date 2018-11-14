@@ -1,7 +1,9 @@
 ﻿using VTaxi.Shared.Enums;
 
 namespace VTaxi.BLL.DTO
-{
+{/// <summary>
+/// Order data transfer object used to transfer order between application and database
+/// </summary>
     public class OrderDto
     {
         public int Id { get; set; }

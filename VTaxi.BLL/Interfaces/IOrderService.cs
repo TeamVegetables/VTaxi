@@ -2,7 +2,9 @@
 using VTaxi.BLL.DTO;
 
 namespace VTaxi.BLL.Interfaces
-{
+{/// <summary>
+/// Order Service interface
+/// </summary>
     public interface IOrderService
     {
         IEnumerable<OrderDto> GetAll();

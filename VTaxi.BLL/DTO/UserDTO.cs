@@ -2,6 +2,9 @@
 
 namespace VTaxi.BLL.DTO
 {
+    /// <summary>
+    /// User data transfer object used to transfer userdata between application and database
+    /// </summary>
     public class UserDto
     {
         public int Id { get; set; }
