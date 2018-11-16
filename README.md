@@ -1,5 +1,6 @@
 # VTaxi by Team Vegetables
 ## Used technologies
+* Azure
 * Entity Framework
 * Ninject
 * AutoMapper
