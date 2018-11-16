@@ -9,29 +9,32 @@ using VTaxi.DAL.Models;
 namespace VTaxi.DAL.Repositories
 {
     /// <summary>
-    /// User repository
+    ///     User repository
     /// </summary>
     public class UserRepository : IRepository<User>
     {
         private readonly TaxiContext _db;
+
         /// <summary>
-        /// Constructor with parametres
+        ///     Constructor with parametres
         /// </summary>
         /// <param name="context">taxi info</param>
         public UserRepository(TaxiContext context)
         {
             _db = context;
         }
+
         /// <summary>
-        /// Get all users from data base
+        ///     Get all users from data base
         /// </summary>
         /// <returns>container</returns>
         public IEnumerable<User> GetAll()
         {
             return _db.Users;
         }
+
         /// <summary>
-        /// Get User from data base
+        ///     Get User from data base
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>User</returns>
@@ -39,24 +42,27 @@ namespace VTaxi.DAL.Repositories
         {
             return _db.Users.Find(id);
         }
+
         /// <summary>
-        /// Add user to data base
+        ///     Add user to data base
         /// </summary>
         /// <param name="user">User</param>
         public void Create(User user)
         {
             _db.Users.Add(user);
         }
+
         /// <summary>
-        /// Modify existing user in data base
+        ///     Modify existing user in data base
         /// </summary>
         /// <param name="user">user</param>
         public void Update(User user)
         {
             _db.Entry(user).State = EntityState.Modified;
         }
+
         /// <summary>
-        /// Find all users with special value
+        ///     Find all users with special value
         /// </summary>
         /// <param name="predicate">function wich defines special value</param>
         /// <returns>container of users with special value</returns>
@@ -64,8 +70,9 @@ namespace VTaxi.DAL.Repositories
         {
             return _db.Users.Where(predicate).ToList();
         }
+
         /// <summary>
-        /// Delete user from database
+        ///     Delete user from database
         /// </summary>
         /// <param name="id">id of user</param>
         public void Delete(int id)

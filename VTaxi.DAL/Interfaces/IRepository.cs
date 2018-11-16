@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace VTaxi.DAL.Interfaces
 {
     /// <summary>
-    /// The interface that implements the repository of template class
+    ///     The interface that implements the repository of template class
     /// </summary>
     /// <typeparam name="T">template class</typeparam>
     public interface IRepository<T> where T : class

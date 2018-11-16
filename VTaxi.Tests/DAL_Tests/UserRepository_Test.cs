@@ -13,17 +13,10 @@ namespace VTaxi.Tests.DAL_Tests
     [TestFixture]
     public class UserRepository_Test
     {
-        private List<User> _data;
-
-        private DbSetMock<User> _mockSet;
-
-        private DbContextMock<TaxiContext> _contextMock;
-
         [SetUp]
         public virtual void Setup()
         {
-       
-        _data = new List<User>
+            _data = new List<User>
             {
                 new User
                 {
@@ -61,6 +54,12 @@ namespace VTaxi.Tests.DAL_Tests
             _contextMock.Setup(i => i.Users).Returns(_mockSet.Object);
         }
 
+        private List<User> _data;
+
+        private DbSetMock<User> _mockSet;
+
+        private DbContextMock<TaxiContext> _contextMock;
+
 
         [Test]
         public void Create_Test()
@@ -69,7 +68,7 @@ namespace VTaxi.Tests.DAL_Tests
             var userRepository = new UserRepository(_contextMock.Object);
 
             //Act
-            var user = new User { };
+            var user = new User();
             userRepository.Create(user);
 
             //Assert
@@ -115,7 +114,7 @@ namespace VTaxi.Tests.DAL_Tests
             userRepository.Get(3);
 
             //Assert
-            _mockSet.Verify(m=>m.Find(It.IsAny<int>()),Times.Exactly(3));
+            _mockSet.Verify(m => m.Find(It.IsAny<int>()), Times.Exactly(3));
         }
 
         [Test]

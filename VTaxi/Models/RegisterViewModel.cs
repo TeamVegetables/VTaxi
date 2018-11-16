@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VTaxi.Models
+﻿namespace VTaxi.Models
 {
-/// <summary>
-/// View of Register Model
-/// </summary>
+    /// <summary>
+    ///     View of Register Model
+    /// </summary>
     public class RegisterViewModel
     {
         public string Email { get; set; }

@@ -13,7 +13,7 @@ using VTaxi.Util;
 namespace VTaxi.Pages.Order
 {
     /// <summary>
-    /// Interaction logic for Orders.xaml
+    ///     Interaction logic for Orders.xaml
     /// </summary>
     public partial class Orders : UserControl
     {
@@ -41,9 +41,7 @@ namespace VTaxi.Pages.Order
         {
             UpdateOrders();
             foreach (var orderDto in OrderContext.Orders)
-            {
                 OrdersList.Items.Add($"{orderDto.StartPoint} - {orderDto.FinishPoint}");
-            }
         }
 
         private void UpdateOrders()
@@ -69,7 +67,8 @@ namespace VTaxi.Pages.Order
                 StartButton.IsEnabled = false;
                 FinishButton.IsEnabled = false;
             }
-            else if (OrderContext.SelectedOrder.Status == OrderStatus.InProcess && _currentOrderId == OrderContext.SelectedOrder.Id && _timer.IsEnabled)
+            else if (OrderContext.SelectedOrder.Status == OrderStatus.InProcess &&
+                     _currentOrderId == OrderContext.SelectedOrder.Id && _timer.IsEnabled)
             {
                 StartButton.IsEnabled = false;
                 FinishButton.IsEnabled = true;
@@ -108,7 +107,8 @@ namespace VTaxi.Pages.Order
             TripTime.Visibility = Visibility.Hidden;
             TripCost.Visibility = Visibility.Visible;
             UpdateUi();
-            Cost.Text = _orderService.FinishTrip(OrderContext.SelectedOrder.Id, AuthenticationService.CurrentUser.Id, _time.TotalMinutes, 2) + "$";
+            Cost.Text = _orderService.FinishTrip(OrderContext.SelectedOrder.Id, AuthenticationService.CurrentUser.Id,
+                            _time.TotalMinutes, 2) + "$";
             UpdateOrders();
             State.Text = OrderContext.SelectedOrder.Status.ToString();
         }

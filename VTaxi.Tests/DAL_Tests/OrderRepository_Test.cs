@@ -13,12 +13,6 @@ namespace VTaxi.Tests.DAL_Tests
     [TestFixture]
     public class OrderRepository_Test
     {
-        private List<Order> _data;
-
-        private DbSetMock<Order> _mockSet;
-
-        private DbContextMock<TaxiContext> _contextMock;
-
         [SetUp]
         public virtual void Setup()
         {
@@ -47,12 +41,18 @@ namespace VTaxi.Tests.DAL_Tests
                     FinishPoint = "XXX",
                     PassengerName = "EVHEN",
                     Status = OrderStatus.Finished
-                },
+                }
             };
             _contextMock = new DbContextMock<TaxiContext>("defaultconnection");
             _mockSet = _contextMock.CreateDbSetMock(i => i.Orders, _data);
             _contextMock.Setup(i => i.Orders).Returns(_mockSet.Object);
         }
+
+        private List<Order> _data;
+
+        private DbSetMock<Order> _mockSet;
+
+        private DbContextMock<TaxiContext> _contextMock;
 
 
         [Test]
@@ -62,7 +62,7 @@ namespace VTaxi.Tests.DAL_Tests
             var orderRepository = new OrderRepository(_contextMock.Object);
 
             //Act
-            var order = new Order { };
+            var order = new Order();
             orderRepository.Create(order);
 
             //Assert

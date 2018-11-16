@@ -6,34 +6,36 @@ using VTaxi.DAL.Interfaces;
 using VTaxi.DAL.Models;
 
 namespace VTaxi.BLL.Services
-{/// <summary>
-/// Class Authentification service serves to recognize users
-/// </summary>
-    public class AuthenticationService: IAuthenticationService
+{
+    /// <summary>
+    ///     Class Authentification service serves to recognize users
+    /// </summary>
+    public class AuthenticationService : IAuthenticationService
     {
-        public static UserDto CurrentUser { get; set; }
-
-        private IUnitOfWork DataBase { get; }
         /// <summary>
-        /// Construcror with parameters that connects the database
+        ///     Construcror with parameters that connects the database
         /// </summary>
         /// <param name="db">database</param>
         public AuthenticationService(IUnitOfWork db)
         {
             DataBase = db;
         }
+
+        public static UserDto CurrentUser { get; set; }
+
+        private IUnitOfWork DataBase { get; }
+
         /// <summary>
-        /// Login method
+        ///     Login method
         /// </summary>
         /// <param name="userDto">new or existing user</param>
         /// <returns>new or existing user</returns>
         public UserDto LogIn(UserDto userDto)
         {
-            var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password).FirstOrDefault();
+            var user = DataBase.Users.Find(i => i.Email == userDto.Email && i.Password == userDto.Password)
+                .FirstOrDefault();
             if (user == null)
-            {
                 throw new InvalidOperationException("Bad credentials!");
-            }
 
             CurrentUser = new UserDto
             {
@@ -48,8 +50,9 @@ namespace VTaxi.BLL.Services
 
             return CurrentUser;
         }
+
         /// <summary>
-        /// Register new User
+        ///     Register new User
         /// </summary>
         /// <param name="userDto">user data tr</param>
         /// <returns>new UserDTO</returns>
@@ -57,9 +60,7 @@ namespace VTaxi.BLL.Services
         {
             var user = DataBase.Users.Find(i => i.Email == userDto.Email).FirstOrDefault();
             if (user != null)
-            {
                 throw new InvalidOperationException("User with this E-Mail already exists!");
-            }
 
             CurrentUser = new UserDto
             {
@@ -79,8 +80,9 @@ namespace VTaxi.BLL.Services
 
             return CurrentUser;
         }
+
         /// <summary>
-        /// Dispose database
+        ///     Dispose database
         /// </summary>
         public void Dispose()
         {

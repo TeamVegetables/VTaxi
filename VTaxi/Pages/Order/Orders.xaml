@@ -1,48 +1,48 @@
 ﻿<UserControl x:Class="VTaxi.Pages.Order.Orders"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="95*"/>
-            <ColumnDefinition Width="173*"/>
+            <ColumnDefinition Width="95*" />
+            <ColumnDefinition Width="173*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
-                <ListBox Name="OrdersList" HorizontalAlignment="Left" SelectionChanged="ListBox_SelectionChanged"/>
-            </StackPanel>
+            <ListBox Name="OrdersList" HorizontalAlignment="Left" SelectionChanged="ListBox_SelectionChanged" />
+        </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical">
-            <TextBlock Text="Trip Info" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center"/>
+            <TextBlock Text="Trip Info" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Passenger name: " FontWeight="Bold" FontSize="36"/>
-                <TextBlock Name="PassengerName" FontSize="36"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
-                <TextBlock Text="From: " FontWeight="Bold" FontSize="36"/>
-                <TextBlock Name="FromText" FontSize="36"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
-                <TextBlock Text="To: " FontWeight="Bold" FontSize="36"/>
-                <TextBlock Name="ToText" FontSize="36"/>
+                <TextBlock Text="Passenger name: " FontWeight="Bold" FontSize="36" />
+                <TextBlock Name="PassengerName" FontSize="36" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="State: " FontWeight="Bold" FontSize="36"/>
-                <TextBlock Name="State" FontSize="36"/>
+                <TextBlock Text="From: " FontWeight="Bold" FontSize="36" />
+                <TextBlock Name="FromText" FontSize="36" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0"  HorizontalAlignment="Center">
-                <Button Name="StartButton" Content="Start Trip" Margin="0,0,5,0" Click="StartButton_Click"/>
-                <Button Name="FinishButton" Content="Finish Trip" Margin="5,0,0,0" Click="FinishButton_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="To: " FontWeight="Bold" FontSize="36" />
+                <TextBlock Name="ToText" FontSize="36" />
             </StackPanel>
-            <StackPanel Name="TripTime"  Orientation="Vertical" Margin="0,10,0,0"  HorizontalAlignment="Center">
-                <TextBlock Text="Trip Time" FontWeight="Bold" FontSize="36"/>
-                <TextBlock Name="Timer" FontSize="36"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="State: " FontWeight="Bold" FontSize="36" />
+                <TextBlock Name="State" FontSize="36" />
             </StackPanel>
-            <StackPanel Name="TripCost" Orientation="Vertical" Margin="0,10,0,0"  HorizontalAlignment="Left">
-                <TextBlock Text="Trip Cost" FontWeight="Bold" FontSize="36"/>
-                <TextBlock Name="Cost" FontSize="36"/>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <Button Name="StartButton" Content="Start Trip" Margin="0,0,5,0" Click="StartButton_Click" />
+                <Button Name="FinishButton" Content="Finish Trip" Margin="5,0,0,0" Click="FinishButton_Click" />
+            </StackPanel>
+            <StackPanel Name="TripTime" Orientation="Vertical" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <TextBlock Text="Trip Time" FontWeight="Bold" FontSize="36" />
+                <TextBlock Name="Timer" FontSize="36" />
+            </StackPanel>
+            <StackPanel Name="TripCost" Orientation="Vertical" Margin="0,10,0,0" HorizontalAlignment="Left">
+                <TextBlock Text="Trip Cost" FontWeight="Bold" FontSize="36" />
+                <TextBlock Name="Cost" FontSize="36" />
             </StackPanel>
         </StackPanel>
     </Grid>

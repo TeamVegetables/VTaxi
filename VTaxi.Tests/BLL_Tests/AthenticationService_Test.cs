@@ -14,12 +14,6 @@ namespace VTaxi.Tests.BLL_Tests
     [TestFixture]
     public class UserRepository_Test
     {
-        private List<User> _data;
-
-        private Mock<IUnitOfWork> _mockUoW;
-
-        private Mock<IRepository<User>> _mockRepo;
-        
         [SetUp]
         public virtual void Setup()
         {
@@ -60,6 +54,35 @@ namespace VTaxi.Tests.BLL_Tests
             _mockRepo = new Mock<IRepository<User>>();
         }
 
+        private List<User> _data;
+
+        private Mock<IUnitOfWork> _mockUoW;
+
+        private Mock<IRepository<User>> _mockRepo;
+
+        [Test]
+        public void Dispose_Test()
+        {
+            //Arrange
+            var authenticationService = new AuthenticationService(_mockUoW.Object);
+            //Act
+            authenticationService.Dispose();
+            //Assert
+            _mockUoW.Verify(i => i.Dispose(), Times.Once);
+        }
+
+        [Test]
+        public void LogIn_NotFoundUserTest()
+        {
+            //Arrange
+            var authenticationService = new AuthenticationService(_mockUoW.Object);
+            _mockUoW.Setup(i => i.Users).Returns(_mockRepo.Object);
+            //Act
+
+            //Assert
+            Assert.Throws<InvalidOperationException>(() => authenticationService.LogIn(new UserDto()));
+        }
+
 
         [Test]
         public void LogIn_SuccessfullyTest()
@@ -80,19 +103,20 @@ namespace VTaxi.Tests.BLL_Tests
             Assert.AreEqual(AuthenticationService.CurrentUser.Password, user.Password);
             Assert.AreEqual(AuthenticationService.CurrentUser.Type, user.Type);
             Assert.AreEqual(AuthenticationService.CurrentUser.SuccessfulTrips, user.SuccessfulTrips);
-            _mockRepo.Verify(i=>i.Find(It.IsAny<Func<User, bool>>()), Times.Once);
+            _mockRepo.Verify(i => i.Find(It.IsAny<Func<User, bool>>()), Times.Once);
         }
 
         [Test]
-        public void LogIn_NotFoundUserTest()
+        public void Register_FailedTest()
         {
             //Arrange
             var authenticationService = new AuthenticationService(_mockUoW.Object);
+            _mockRepo.Setup(i => i.Find(It.IsAny<Func<User, bool>>())).Returns(_data);
             _mockUoW.Setup(i => i.Users).Returns(_mockRepo.Object);
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() => authenticationService.LogIn(new UserDto()));
+            Assert.Throws<InvalidOperationException>(() => authenticationService.Register(new UserDto()));
         }
 
         [Test]
@@ -124,31 +148,7 @@ namespace VTaxi.Tests.BLL_Tests
             Assert.AreEqual(AuthenticationService.CurrentUser.Type, user.Type);
             _mockRepo.Verify(i => i.Find(It.IsAny<Func<User, bool>>()), Times.Once);
             _mockRepo.Verify(i => i.Create(It.IsAny<User>()), Times.Once);
-            _mockUoW.Verify(i=>i.Save(), Times.Once);
-        }
-
-        [Test]
-        public void Register_FailedTest()
-        {
-            //Arrange
-            var authenticationService = new AuthenticationService(_mockUoW.Object);
-            _mockRepo.Setup(i => i.Find(It.IsAny<Func<User, bool>>())).Returns(_data);
-            _mockUoW.Setup(i => i.Users).Returns(_mockRepo.Object);
-            //Act
-
-            //Assert
-            Assert.Throws<InvalidOperationException>(() => authenticationService.Register(new UserDto()));
-        }
-
-        [Test]
-        public void Dispose_Test()
-        {
-            //Arrange
-            var authenticationService = new AuthenticationService(_mockUoW.Object);
-            //Act
-            authenticationService.Dispose();
-            //Assert
-            _mockUoW.Verify(i=> i.Dispose(), Times.Once);
+            _mockUoW.Verify(i => i.Save(), Times.Once);
         }
     }
 }

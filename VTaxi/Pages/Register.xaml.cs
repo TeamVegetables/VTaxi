@@ -2,6 +2,7 @@
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Ninject;
 using VTaxi.BLL.DTO;
 using VTaxi.BLL.Interfaces;
@@ -11,7 +12,7 @@ using VTaxi.Util;
 namespace VTaxi.Pages
 {
     /// <summary>
-    /// Interaction logic for Register.xaml
+    ///     Interaction logic for Register.xaml
     /// </summary>
     public partial class Register : UserControl
     {
@@ -35,6 +36,7 @@ namespace VTaxi.Pages
                     LastName = LastNameTextBox.Text,
                     Password = PasswordBox.Password
                 });
+                NavigationCommands.GoToPage.Execute("Pages/Profile.xaml", this);
             }
             catch (FormatException formatException)
             {
@@ -50,29 +52,19 @@ namespace VTaxi.Pages
         {
             var mail = new MailAddress(EmailTextBox.Text);
             if (string.IsNullOrEmpty(PasswordBox.Password))
-            {
                 throw new FormatException("Password can't be empty!");
-            }
 
             if (string.IsNullOrEmpty(ConfirmPasswordBox.Password))
-            {
                 throw new FormatException("Confirm password!");
-            }
 
             if (!string.Equals(PasswordBox.Password, ConfirmPasswordBox.Password))
-            {
                 throw new FormatException("Passwords do not match!");
-            }
 
             if (string.IsNullOrEmpty(FirstNameTextBox.Text))
-            {
                 throw new FormatException("First Name field can't be empty!");
-            }
 
             if (string.IsNullOrEmpty(LastNameTextBox.Text))
-            {
                 throw new FormatException("Last Name field can't be empty!");
-            }
         }
     }
 }

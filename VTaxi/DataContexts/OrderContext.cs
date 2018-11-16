@@ -4,7 +4,7 @@ using VTaxi.BLL.DTO;
 namespace VTaxi.DataContexts
 {
     /// <summary>
-    /// Order context class
+    ///     Order context class
     /// </summary>
     public static class OrderContext
     {

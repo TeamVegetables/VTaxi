@@ -9,29 +9,32 @@ using VTaxi.DAL.Models;
 namespace VTaxi.DAL.Repositories
 {
     /// <summary>
-    /// Order repository
+    ///     Order repository
     /// </summary>
     public class OrderRepository : IRepository<Order>
     {
         private readonly TaxiContext _db;
+
         /// <summary>
-        /// Constructor with paramentres
+        ///     Constructor with paramentres
         /// </summary>
         /// <param name="context">info</param>
         public OrderRepository(TaxiContext context)
         {
             _db = context;
         }
+
         /// <summary>
-        /// Show all orders from database
+        ///     Show all orders from database
         /// </summary>
         /// <returns>Container</returns>
         public IEnumerable<Order> GetAll()
         {
             return _db.Orders;
         }
+
         /// <summary>
-        /// Find order by id
+        ///     Find order by id
         /// </summary>
         /// <param name="id">id</param>
         /// <returns>Existing order</returns>
@@ -39,24 +42,27 @@ namespace VTaxi.DAL.Repositories
         {
             return _db.Orders.Find(id);
         }
+
         /// <summary>
-        /// Add order to database
+        ///     Add order to database
         /// </summary>
         /// <param name="order">existing order</param>
         public void Create(Order order)
         {
             _db.Orders.Add(order);
         }
+
         /// <summary>
-        /// Modify existing order in database
+        ///     Modify existing order in database
         /// </summary>
         /// <param name="order">existing order</param>
         public void Update(Order order)
         {
             _db.Entry(order).State = EntityState.Modified;
         }
+
         /// <summary>
-        /// Find order
+        ///     Find order
         /// </summary>
         /// <param name="predicate">function which check value</param>
         /// <returns>orders with special value</returns>
@@ -64,13 +70,14 @@ namespace VTaxi.DAL.Repositories
         {
             return _db.Orders.Where(predicate).ToList();
         }
+
         /// <summary>
-        /// Remove order from database
+        ///     Remove order from database
         /// </summary>
         /// <param name="id">id order</param>
         public void Delete(int id)
         {
-            Order order = _db.Orders.Find(id);
+            var order = _db.Orders.Find(id);
             if (order != null)
                 _db.Orders.Remove(order);
         }

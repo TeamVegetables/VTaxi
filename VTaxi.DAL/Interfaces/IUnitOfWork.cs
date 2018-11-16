@@ -4,7 +4,7 @@ using VTaxi.DAL.Models;
 namespace VTaxi.DAL.Interfaces
 {
     /// <summary>
-    /// Interface which contains all repositiries from this project
+    ///     Interface which contains all repositiries from this project
     /// </summary>
     public interface IUnitOfWork : IDisposable
     {

@@ -4,7 +4,7 @@ using VTaxi.Shared.Enums;
 namespace VTaxi.DAL.Models
 {
     /// <summary>
-    /// Class order which contain info about trip
+    ///     Class order which contain info about trip
     /// </summary>
     public class Order
     {

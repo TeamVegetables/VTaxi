@@ -1,33 +1,33 @@
 ﻿<UserControl x:Class="VTaxi.Pages.Profile"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
-            <StackPanel MinWidth="200" VerticalAlignment ="Top" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal" >
-                    <TextBlock Text="First Name: " FontSize="28" FontStyle="Italic" Foreground="DarkGoldenrod"></TextBlock>
-                    <TextBlock Name="FirstNameTextBlock" FontSize="28" FontFamily="Segoe UI Light" 
-                               Text="{Binding Path=FirstName}"></TextBlock>
+            <StackPanel MinWidth="200" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="First Name: " FontSize="28" FontStyle="Italic" Foreground="DarkGoldenrod" />
+                    <TextBlock Name="FirstNameTextBlock" FontSize="28" FontFamily="Segoe UI Light"
+                               Text="{Binding Path=FirstName}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Last Name: " FontSize="28" FontStyle="Italic" Foreground="DarkGoldenrod"></TextBlock>
+                    <TextBlock Text="Last Name: " FontSize="28" FontStyle="Italic" Foreground="DarkGoldenrod" />
                     <TextBlock Name="LastNameTextBlock" FontSize="28" FontFamily="Segoe UI Light"
-                               Text="{Binding Path=LastName}"></TextBlock>
+                               Text="{Binding Path=LastName}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Email: " FontSize="28" Foreground="DarkGoldenrod" FontStyle="Italic"></TextBlock>
+                    <TextBlock Text="Email: " FontSize="28" Foreground="DarkGoldenrod" FontStyle="Italic" />
                     <TextBlock Name="EmailTextBlock" FontSize="28" FontFamily="Segoe UI Light"
-                               Text="{Binding Path=Email}"></TextBlock>
+                               Text="{Binding Path=Email}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Successful Trips: " FontSize="28" Foreground="DarkGoldenrod" FontStyle="Italic"></TextBlock>
+                    <TextBlock Text="Successful Trips: " FontSize="28" Foreground="DarkGoldenrod" FontStyle="Italic" />
                     <TextBlock Name="SuccessfulTripsTextBlock" FontSize="28" FontFamily="Segoe UI Light"
-                               Text="{Binding Path=SuccessfulTrips}"></TextBlock>
+                               Text="{Binding Path=SuccessfulTrips}" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

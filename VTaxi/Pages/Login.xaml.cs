@@ -12,7 +12,7 @@ using VTaxi.Util;
 namespace VTaxi.Pages
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    ///     Interaction logic for Login.xaml
     /// </summary>
     public partial class Login : UserControl
     {
@@ -55,9 +55,7 @@ namespace VTaxi.Pages
         {
             var mail = new MailAddress(EmailTextBox.Text);
             if (string.IsNullOrEmpty(PasswordBox.Password))
-            {
                 throw new FormatException("Password can't be empty!");
-            }
         }
     }
 }
